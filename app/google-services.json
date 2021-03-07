@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "251031457209",
+    "project_id": "track-my-receipt-app",
+    "storage_bucket": "track-my-receipt-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251031457209:android:83be02486b3955a3e07a68",
+        "android_client_info": {
+          "package_name": "com.example.trackmyreceiptapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251031457209-5uko076ad7j3kpb0mgsivks1lhts1ta9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtNbwG9l1_U96ooVTFMwD5orAs-rNc8Ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251031457209-5uko076ad7j3kpb0mgsivks1lhts1ta9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
