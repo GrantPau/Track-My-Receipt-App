@@ -29,9 +29,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.itemname.setText(item.get(position).getItemname());
-        holder.itemdate.setText(item.get(position).getItemdate());
-        holder.itemname.setText(item.get(position).getItemname());
+        holder.item_name.setText(item.get(position).getItem_name());
+        holder.item_date.setText(item.get(position).getItem_date());
+        holder.item_price.setText(item.get(position).getItem_price());
 
     }
 
@@ -42,13 +42,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView itemname, itemdate, itemprice;
+        TextView item_name, item_date, item_price;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemname = (TextView) itemView.findViewById(R.id.item_name);
-            itemdate = (TextView) itemView.findViewById(R.id.item_date);
-            itemprice = (TextView) itemView.findViewById(R.id.item_price);
+            item_name = (TextView) itemView.findViewById(R.id.item_name);
+            item_date = (TextView) itemView.findViewById(R.id.item_date);
+            item_price = (TextView) itemView.findViewById(R.id.item_price);
         }
     }
 }

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private String currentPhotoPath;
     ImageView receiptImageView, receiptImageView2;
-    TextView receiptDataTextView;
+    TextView receiptDataTextView, showItemName, showItemDate, showItemPrice;
     Button openCameraBtn, recentPurchasesBtn, statisticsbtn;
     RecyclerView receiptRecyclerView;
     ArrayList<item> list;
@@ -64,17 +64,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         receiptImageView = findViewById(R.id.receipt_img_id);
-        receiptImageView2 = findViewById(R.id.receipt_img_id2);
+        //receiptImageView2 = findViewById(R.id.receipt_img_id2);
         receiptDataTextView = findViewById(R.id.text_id);
         openCameraBtn = findViewById(R.id.open_camera_btn);
         recentPurchasesBtn = findViewById(R.id.recent_purchases_button);
         statisticsbtn = findViewById(R.id.statistics_button);
 
-        receiptRecyclerView.findViewById(R.id.receipt_recycler_view);
+        receiptRecyclerView = findViewById(R.id.receipt_recycler_view);
         receiptRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<item>();
 
-        reference = FirebaseDatabase.getInstance().getReference().child("track_receipt_app");
+        reference = FirebaseDatabase.getInstance().getReference().child("Receipt App");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -132,6 +132,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        statisticsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(MainActivity.this, StatisticsActivity.class);
+                startActivity(a);
+            }
+        });
+
+
     }
 
 
@@ -164,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void displayTextFromImage(FirebaseVisionText firebaseVisionText) {
         List<FirebaseVisionText.Block> blockList = firebaseVisionText.getBlocks();
         if(blockList.size()==0) {
@@ -172,8 +180,22 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             for(FirebaseVisionText.Block block : firebaseVisionText.getBlocks()) {
+
+                showItemName = findViewById(R.id.show_item_name);
+                showItemDate = findViewById(R.id.show_item_date);
+                showItemPrice = findViewById(R.id.show_item_price);
                 String text = block.getText();
                 receiptDataTextView.setText(text);
+
+                //separates extracted string based $ and integer delimiter
+                String[] words = text.split(" ");
+
+                for (String word: words) {
+                    showItemName.setText(word);
+                    showItemDate.setText(word);
+                    showItemPrice.setText(word);
+                }
+
             }
         }
     }

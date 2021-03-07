@@ -1,40 +1,40 @@
 package com.example.trackmyreceiptapp;
 
 public class item {
-    String itemname;
-    String itemdate;
-    String itemprice;
+    String item_name;
+    String item_date;
+    String item_price;
 
     public item() {
     }
 
-    public item(String itemname, String itemdate, String itemprice) {
-        this.itemname = itemname;
-        this.itemdate = itemdate;
-        this.itemprice = itemprice;
+    public item(String item_name, String item_date, String item_price) {
+        this.item_name = item_name;
+        this.item_date = item_date;
+        this.item_price = item_price;
     }
 
-    public String getItemname() {
-        return itemname;
+    public String getItem_name() {
+        return item_name;
     }
 
-    public void setItemname(String itemname) {
-        this.itemname = itemname;
+    public void setItem_name(String item_name) {
+        this.item_name = item_name;
     }
 
-    public String getItemdate() {
-        return itemdate;
+    public String getItem_date() {
+        return item_date;
     }
 
-    public void setItemdescription(String itemdate) {
-        this.itemdate = itemdate;
+    public void setItem_description(String item_date) {
+        this.item_date = item_date;
     }
 
-    public String getItemprice() {
-        return itemprice;
+    public String getItem_price() {
+        return item_price;
     }
 
-    public void setItemprice(String itemprice) {
-        this.itemprice = itemprice;
+    public void setItem_price(String item_price) {
+        this.item_price = item_price;
     }
 }
